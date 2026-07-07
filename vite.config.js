@@ -1,36 +1,49 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// Custom plugin to mock the /api/send-inquiry serverless function in local dev mode
-const mockApiPlugin = () => ({
-  name: 'mock-api-plugin',
+const localApiPlugin = () => ({
+  name: 'local-api-plugin',
   configureServer(server) {
-    server.middlewares.use((req, res, next) => {
-      // Handle /api/send-inquiry POST route
+    server.middlewares.use(async (req, res, next) => {
       if (req.url === '/api/send-inquiry' && req.method === 'POST') {
         let body = '';
         req.on('data', chunk => {
           body += chunk.toString();
         });
-        req.on('end', () => {
+        req.on('end', async () => {
           try {
             const data = JSON.parse(body);
-            console.log('\n--- [Local Dev Api Mock] Inquiry Received ---');
-            console.log(data);
-            console.log('---------------------------------------------\n');
+            req.body = data;
             
-            res.setHeader('Content-Type', 'application/json');
-            res.statusCode = 200;
-            res.end(JSON.stringify({ 
-              success: true, 
-              message: 'Inquiry simulated successfully locally! (Note: Deploy your Resend key on Vercel to receive real emails)',
-              simulated: true,
-              data 
-            }));
+            // Load environment variables for the API handler
+            const env = loadEnv('', process.cwd(), '');
+            process.env.RESEND_API_KEY = env.RESEND_API_KEY;
+            process.env.RECIPIENT_EMAIL = env.RECIPIENT_EMAIL;
+            process.env.SENDER_EMAIL = env.SENDER_EMAIL;
+
+            // Import the actual handler
+            const { default: handler } = await import('./api/send-inquiry.js');
+            
+            // Add helper methods if needed by the handler, though it mostly uses basic res.status().json()
+            const originalJson = res.json;
+            const originalStatus = res.status;
+            
+            res.status = function(code) {
+              res.statusCode = code;
+              return res;
+            };
+            
+            res.json = function(obj) {
+              res.setHeader('Content-Type', 'application/json');
+              res.end(JSON.stringify(obj));
+            };
+            
+            await handler(req, res);
           } catch (e) {
-            res.setHeader('Content-Type', 'application/json');
+            console.error(e);
             res.statusCode = 400;
-            res.end(JSON.stringify({ error: 'Invalid JSON payload received.' }));
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ error: 'Invalid payload or server error.' }));
           }
         });
       } else {
@@ -42,5 +55,5 @@ const mockApiPlugin = () => ({
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), mockApiPlugin()],
+  plugins: [react(), localApiPlugin()],
 })
