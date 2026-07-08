@@ -16,7 +16,18 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email, phone, company, subject, message, productType } = req.body;
+  // Parse body if it is still a string (Vercel normally parses it, but some environments or clients may bypass it)
+  let body = req.body;
+  if (typeof body === 'string') {
+    try {
+      body = JSON.parse(body);
+    } catch (e) {
+      console.error('Failed to parse request body as JSON:', e);
+      return res.status(400).json({ error: 'Invalid JSON request body.' });
+    }
+  }
+
+  const { name, email, phone, company, subject, message, productType } = body || {};
 
   if (!name || !email || !phone) {
     return res.status(400).json({ error: 'Required fields (name, email, phone) are missing.' });
