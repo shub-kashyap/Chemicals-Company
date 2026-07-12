@@ -68,7 +68,7 @@ export default function Infrastructure() {
       <section className="relative h-[360px] md:h-[440px] flex flex-col justify-end bg-slate-900 text-white overflow-hidden pb-12 md:pb-16">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100"
-          style={{ backgroundImage: `url(/images/photo-1513828583688-c52646db42da.jpg)` }}
+          style={{ backgroundImage: `url(/images/infrastructure_hero.webp)` }}
         />
         <div className="absolute inset-0 bg-black/45" />
         
@@ -81,7 +81,7 @@ export default function Infrastructure() {
               Our Infrastructure
             </h1>
             <div className="text-xs text-slate-300 font-sans flex items-center space-x-2">
-              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+              <Link to="/home" className="hover:text-white transition-colors">Home</Link>
               <span>/</span>
               <span className="text-slate-200">Infrastructure</span>
             </div>

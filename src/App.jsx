@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 // Components
@@ -7,7 +7,6 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
 import SmoothScroll from './components/SmoothScroll';
-import CustomCursor from './components/CustomCursor';
 
 // Pages
 import Home from './pages/Home';
@@ -15,7 +14,6 @@ import About from './pages/About';
 import Products from './pages/Products';
 import Infrastructure from './pages/Infrastructure';
 import Quality from './pages/Quality';
-import Export from './pages/Export';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 
@@ -30,8 +28,6 @@ function App() {
 
   return (
     <>
-      <CustomCursor />
-      
       <LoadingScreen onComplete={() => setLoading(false)} />
 
       {!loading && (
@@ -44,12 +40,12 @@ function App() {
             <main className="flex-grow">
               <AnimatePresence mode="wait">
                 <Routes location={location} key={location.pathname}>
-                  <Route path="/" element={<Home />} />
+                  <Route path="/" element={<Navigate to="/home" replace />} />
+                  <Route path="/home" element={<Home />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/products" element={<Products />} />
                   <Route path="/infrastructure" element={<Infrastructure />} />
                   <Route path="/quality" element={<Quality />} />
-                  <Route path="/export" element={<Export />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/enquiry" element={<Contact />} />
                   <Route path="*" element={<NotFound />} />

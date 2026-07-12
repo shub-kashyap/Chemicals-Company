@@ -38,7 +38,7 @@ export default async function handler(req, res) {
   const recipientEmail = process.env.RECIPIENT_EMAIL || 'shubkashyap806@gmail.com';
   const senderEmail = process.env.SENDER_EMAIL || 'onboarding@resend.dev';
 
-  // Demo fallback mode if RESEND_API_KEY is not configured
+// Demo fallback mode if RESEND_API_KEY is not configured
   if (!resendApiKey || resendApiKey === 're_your_api_key_here') {
     console.warn("Resend API Key is not configured in environment variables. Running in simulated demo mode.");
     console.log("Inquiry Data Received:", req.body);

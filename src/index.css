@@ -50,21 +50,6 @@ html.lenis, html.lenis body {
   background: #94a3b8;
 }
 
-/* Hide default cursor on desktop when using custom cursor */
-@media (min-width: 1024px) {
-  .custom-cursor-active {
-    cursor: none;
-  }
-  .custom-cursor-active a, 
-  .custom-cursor-active button, 
-  .custom-cursor-active input, 
-  .custom-cursor-active select, 
-  .custom-cursor-active textarea,
-  .custom-cursor-active [role="button"],
-  .custom-cursor-active .cursor-pointer {
-    cursor: none !important;
-  }
-}
 
 /* Glassmorphism glass effect */
 .glass {

@@ -67,7 +67,7 @@ export default function Quality() {
               Quality Assurance
             </h1>
             <div className="text-xs text-slate-300 font-sans flex items-center space-x-2">
-              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+              <Link to="/home" className="hover:text-white transition-colors">Home</Link>
               <span>/</span>
               <span className="text-slate-200">Quality Control</span>
             </div>

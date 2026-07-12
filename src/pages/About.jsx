@@ -44,7 +44,7 @@ export default function About() {
               Company Profile
             </h1>
             <div className="text-xs text-slate-300 font-sans flex items-center space-x-2">
-              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+              <Link to="/home" className="hover:text-white transition-colors">Home</Link>
               <span>/</span>
               <span className="text-slate-200">Company Profile</span>
             </div>
@@ -194,8 +194,8 @@ export default function About() {
               className="lg:col-span-5"
             >
               <img 
-                src="/images/photo-1582719508461-905c673771fd.jpg" 
-                alt="Analytical laboratory quality control" 
+                src="/images/technical_assurance.webp" 
+                alt="Analytical laboratory quality control matching color shades" 
                 className="w-full h-80 object-cover rounded-2xl shadow-soft"
               />
             </motion.div>

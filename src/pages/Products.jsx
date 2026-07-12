@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { motion as framerMotion, AnimatePresence } from 'framer-motion';
-import { FiSearch, FiLayers, FiCheck, FiX, FiInfo, FiTag } from 'react-icons/fi';
+import { FiSearch, FiLayers, FiCheck, FiX, FiInfo, FiTag, FiChevronDown } from 'react-icons/fi';
 import { productCategories, productsList } from '../data/productsData';
 import SEO from '../components/SEO';
 
@@ -10,6 +10,7 @@ export default function Products() {
   const activeCategory = searchParams.get('category') || 'reactive';
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedProduct, setSelectedProduct] = useState(null); // Modal detail state
+  const [dropdownOpen, setDropdownOpen] = useState(false); // Mobile category dropdown state
   
   const categoryData = productCategories.find(c => c.id === activeCategory) || productCategories[0];
   const categorySeries = productsList[activeCategory] || [];
@@ -52,7 +53,7 @@ export default function Products() {
       <section className="relative h-[360px] md:h-[440px] flex flex-col justify-end bg-slate-900 text-white overflow-hidden pb-12 md:pb-16">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100"
-          style={{ backgroundImage: `url(/images/photo-1595246140625-573b715d11dc.jpg)` }}
+          style={{ backgroundImage: `url(/images/products_hero.webp)` }}
         />
         <div className="absolute inset-0 bg-black/45" />
         
@@ -65,7 +66,7 @@ export default function Products() {
               Product Catalogue
             </h1>
             <div className="text-xs text-slate-300 font-sans flex items-center space-x-2">
-              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+              <Link to="/home" className="hover:text-white transition-colors">Home</Link>
               <span>/</span>
               <span className="text-slate-200">Product Catalogue</span>
             </div>
@@ -78,19 +79,19 @@ export default function Products() {
         {/* Layout Grid */}
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8">
           
-          {/* Left Sidebar: Categories Navigation */}
-          <aside className="lg:col-span-3 flex flex-col space-y-2">
-            <h3 className="font-heading text-xs font-bold text-slate-400 uppercase tracking-widest px-4 mb-2 flex items-center space-x-1">
-              <FiLayers />
-              <span>Categories</span>
-            </h3>
-            
-            <div className="flex flex-row lg:flex-col overflow-x-auto lg:overflow-visible gap-2 pb-2 lg:pb-0 scrollbar-thin">
+          {/* Left Sidebar / Dropdown Selector: Categories Navigation */}
+          <aside className="lg:col-span-3 flex flex-col space-y-4">
+            {/* Desktop View: Vertical List */}
+            <div className="hidden lg:flex flex-col space-y-2">
+              <h3 className="font-heading text-xs font-bold text-slate-400 uppercase tracking-widest px-4 mb-2 flex items-center space-x-1">
+                <FiLayers />
+                <span>Categories</span>
+              </h3>
               {productCategories.map((cat) => (
                 <button
                   key={cat.id}
                   onClick={() => handleCategoryChange(cat.id)}
-                  className={`flex-shrink-0 text-left px-4 py-3 rounded-xl text-sm font-heading font-bold transition-all duration-200 ${
+                  className={`text-left px-4 py-3 rounded-xl text-sm font-heading font-bold transition-all duration-200 ${
                     activeCategory === cat.id
                       ? 'bg-navy text-white shadow-md'
                       : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200/60 shadow-soft'
@@ -99,6 +100,58 @@ export default function Products() {
                   {cat.name}
                 </button>
               ))}
+            </div>
+
+            {/* Mobile/Tablet View: Custom Dropdown Select */}
+            <div className="lg:hidden relative w-full z-20">
+              <span className="font-heading text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1.5 ml-1">
+                Select Category
+              </span>
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="w-full bg-white border border-slate-200/80 rounded-xl px-4 py-3.5 flex items-center justify-between text-navy font-heading font-bold text-sm shadow-soft hover:border-royal transition-all"
+              >
+                <div className="flex items-center space-x-2.5">
+                  <FiLayers className="text-royal text-base" />
+                  <span className="text-left leading-none">{categoryData.name}</span>
+                </div>
+                <FiChevronDown className={`text-slate-400 text-base transition-transform duration-300 flex-shrink-0 ${dropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              <AnimatePresence>
+                {dropdownOpen && (
+                  <>
+                    {/* Background overlay to click-away-close */}
+                    <div className="fixed inset-0 z-10 bg-transparent" onClick={() => setDropdownOpen(false)} />
+                    
+                    <framerMotion.div
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute left-0 right-0 mt-2 bg-white border border-slate-200/80 rounded-xl shadow-lg z-20 overflow-hidden divide-y divide-slate-100"
+                    >
+                      {productCategories.map((cat) => (
+                        <button
+                          key={cat.id}
+                          onClick={() => {
+                            handleCategoryChange(cat.id);
+                            setDropdownOpen(false);
+                          }}
+                          className={`w-full text-left px-4 py-3.5 text-xs font-heading font-bold transition-colors flex items-center justify-between ${
+                            activeCategory === cat.id
+                              ? 'bg-royal/10 text-royal'
+                              : 'text-navy hover:bg-slate-50'
+                          }`}
+                        >
+                          <span>{cat.name}</span>
+                          {activeCategory === cat.id && <FiCheck className="text-royal text-sm flex-shrink-0 ml-2" />}
+                        </button>
+                      ))}
+                    </framerMotion.div>
+                  </>
+                )}
+              </AnimatePresence>
             </div>
           </aside>
 
@@ -208,24 +261,55 @@ export default function Products() {
                         <tbody className="divide-y divide-slate-100 text-sm font-sans text-slate-600">
                           {series.items.map((item, itemIdx) => (
                             <tr key={itemIdx} className="hover:bg-slate-50/50 transition-colors">
-                              {/* Product Name */}
-                              <td className="px-6 py-4 font-heading font-bold text-navy">
-                                <div className="flex items-center space-x-3">
-                                  {/* Color Indicator Badge */}
-                                  <div 
-                                    className="w-5 h-5 rounded-full border border-slate-200 flex-shrink-0"
-                                    style={{ backgroundColor: item.hex || '#E2E8F0' }}
-                                    title={item.shade}
-                                  />
-                                  <span>{item.name}</span>
-                                </div>
-                              </td>
-                              
-                              {/* C.I. Generic Name */}
-                              <td className="px-6 py-4 font-mono text-xs">{item.ci}</td>
-                              
-                              {/* Shade/Typical applications info */}
-                              <td className="px-6 py-4 text-xs text-slate-500">{item.shade}</td>
+                              {series.headers.map((header, hIdx) => {
+                                if (header.includes('0.5%')) {
+                                  return (
+                                    <td key={hIdx} className="px-6 py-4">
+                                      <div 
+                                        className="w-12 h-12 rounded-full border border-slate-200 shadow-sm flex-shrink-0"
+                                        style={{ backgroundColor: item.hex05 || item.hex || '#E2E8F0' }}
+                                        title="0.5% Shade"
+                                      />
+                                    </td>
+                                  );
+                                }
+                                if (header.includes('2.0%')) {
+                                  return (
+                                    <td key={hIdx} className="px-6 py-4">
+                                      <div 
+                                        className="w-12 h-12 rounded-full border border-slate-200 shadow-sm flex-shrink-0"
+                                        style={{ backgroundColor: item.hex20 || item.hex || '#E2E8F0' }}
+                                        title="2.0% Shade"
+                                      />
+                                    </td>
+                                  );
+                                }
+                                if (header.includes('Dye Name') || header.includes('Product Name') || header.includes('Product Classification') || header.includes('Dye Class') || header.includes('Subclass')) {
+                                  return (
+                                    <td key={hIdx} className="px-6 py-4 font-heading font-bold text-navy">
+                                      <div className="flex items-center space-x-4">
+                                        {!series.headers.some(h => h.includes('0.5%')) && (
+                                          <div 
+                                            className="w-12 h-12 rounded-full border border-slate-200 shadow-sm flex-shrink-0"
+                                            style={{ backgroundColor: item.hex || '#E2E8F0' }}
+                                            title={item.shade}
+                                          />
+                                        )}
+                                        <span>{item.name}</span>
+                                      </div>
+                                    </td>
+                                  );
+                                }
+                                if (header.includes('C.I. Generic Name') || header.includes('C.I. Number') || header.includes('Key Features') || header.includes('Properties') || header.includes('Common Industry Name') || header.includes('Key Characteristics')) {
+                                  return (
+                                    <td key={hIdx} className="px-6 py-4 font-mono text-xs">{item.ci}</td>
+                                  );
+                                }
+                                // Fallback / Shade / Applications column
+                                return (
+                                  <td key={hIdx} className="px-6 py-4 text-xs text-slate-500">{item.shade}</td>
+                                );
+                              })}
                               
                               {/* Actions */}
                               <td className="px-6 py-4 text-right">
@@ -286,10 +370,25 @@ export default function Products() {
                 {/* Header */}
                 <div className="bg-slate-50 border-b border-slate-200 px-6 py-5 flex justify-between items-center">
                   <div className="flex items-center space-x-3">
-                    <div 
-                      className="w-6 h-6 rounded-full border border-slate-300 flex-shrink-0"
-                      style={{ backgroundColor: selectedProduct.hex || '#E2E8F0' }}
-                    />
+                    {selectedProduct.hex05 && selectedProduct.hex20 ? (
+                      <div className="flex space-x-1.5 flex-shrink-0">
+                        <div 
+                          className="w-7 h-7 rounded-full border border-slate-300 shadow-sm"
+                          style={{ backgroundColor: selectedProduct.hex05 }}
+                          title="0.5% Shade"
+                        />
+                        <div 
+                          className="w-7 h-7 rounded-full border border-slate-300 shadow-sm"
+                          style={{ backgroundColor: selectedProduct.hex20 }}
+                          title="2.0% Shade"
+                        />
+                      </div>
+                    ) : (
+                      <div 
+                        className="w-7 h-7 rounded-full border border-slate-300 flex-shrink-0"
+                        style={{ backgroundColor: selectedProduct.hex || '#E2E8F0' }}
+                      />
+                    )}
                     <div>
                       <h3 className="font-heading text-xl font-bold text-navy leading-none">
                         {selectedProduct.name}
@@ -316,7 +415,20 @@ export default function Products() {
                     </div>
                     <div>
                       <span className="text-xs text-slate-400 uppercase tracking-wider block">Color/Shade</span>
-                      <span className="font-heading font-bold text-navy text-xs mt-0.5 block">{selectedProduct.shade || 'N/A'}</span>
+                      {selectedProduct.hex05 && selectedProduct.hex20 ? (
+                        <div className="flex items-center space-x-3 mt-1.5">
+                          <div className="flex items-center space-x-1">
+                            <div className="w-5 h-5 rounded-full border border-slate-300" style={{ backgroundColor: selectedProduct.hex05 }} />
+                            <span className="text-xs font-heading font-bold text-navy">0.5%</span>
+                          </div>
+                          <div className="flex items-center space-x-1">
+                            <div className="w-5 h-5 rounded-full border border-slate-300" style={{ backgroundColor: selectedProduct.hex20 }} />
+                            <span className="text-xs font-heading font-bold text-navy">2.0%</span>
+                          </div>
+                        </div>
+                      ) : (
+                        <span className="font-heading font-bold text-navy text-xs mt-0.5 block">{selectedProduct.shade || 'N/A'}</span>
+                      )}
                     </div>
                   </div>
 

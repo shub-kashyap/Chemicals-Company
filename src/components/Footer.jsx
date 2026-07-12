@@ -19,9 +19,9 @@ export default function Footer() {
           
           {/* Column 1: Logo, Tagline & Certification */}
           <div className="flex flex-col space-y-6">
-            <Link to="/" className="flex items-center space-x-3 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-royal to-cyan flex items-center justify-center text-white font-heading font-bold text-lg">
-                K
+            <Link to="/home" className="flex items-center space-x-3 group">
+              <div className="w-10 h-10 rounded-xl bg-[#FACC15] flex items-center justify-center text-[#0F172A] font-heading font-bold text-[15px]">
+                KD
               </div>
               <div className="flex flex-col">
                 <span className="font-heading font-bold tracking-tight text-white leading-none text-lg">
@@ -52,7 +52,7 @@ export default function Footer() {
             </h3>
             <ul className="flex flex-col space-y-2.5 text-sm">
               <li>
-                <Link to="/" className="hover:text-cyan transition-colors duration-200">Home</Link>
+                <Link to="/home" className="hover:text-cyan transition-colors duration-200">Home</Link>
               </li>
               <li>
                 <Link to="/about" className="hover:text-cyan transition-colors duration-200">Company Profile</Link>
@@ -62,9 +62,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/quality" className="hover:text-cyan transition-colors duration-200">Quality Control</Link>
-              </li>
-              <li>
-                <Link to="/export" className="hover:text-cyan transition-colors duration-200">Global Presence</Link>
               </li>
               <li>
                 <Link to="/contact" className="hover:text-cyan transition-colors duration-200">Contact Us</Link>

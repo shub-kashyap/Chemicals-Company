@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import AnimatedCounter from '../components/AnimatedCounter';
@@ -8,23 +8,39 @@ import { productCategories } from '../data/productsData';
 import SEO from '../components/SEO';
 
 export default function Home() {
-  
+  const slideImages = [
+    '/images/slide-1.jpg.jpeg',
+    '/images/slide-2.jpg.jpeg',
+    '/images/slide-3.jpg.jpeg',
+    '/images/slide-4.jpg.jpeg',
+    '/images/slide-5.jpg.jpeg',
+    '/images/slide-6.jpg.jpeg'
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slideImages.length);
+    }, 2500);
+    return () => clearInterval(timer);
+  }, [slideImages.length]);
+
   // High-quality industrial and chemical manufacturing image URLs from Unsplash
   const images = {
     heroBg: '/images/photo-1504917595217-d4dc5ebe6122.jpg', // Heavy chemical reactors corridor
-    aboutLab: '/images/photo-1581091226825-a6a2a5aee158.jpg', // Chemist in modern industrial lab
-    aboutDyes: '/images/photo-1528207776546-365bb710ee93.jpg', // Colorful pigments
+    aboutLab: '/images/about_lab.webp', // Chemist in modern industrial lab (custom generated)
+    aboutDyes: '/images/about_dyes.webp', // Colorful pigments (custom generated)
     statsBg: '/images/photo-1541888946425-d81bb19240f5.jpg', // Chemical refinery piping
     ctaBg: '/images/photo-1578575437130-527eed3abbec.jpg', // Shipping cargo port logistics
     
-    // Substrate category background images
     categories: {
-      reactive: '/images/photo-1515562141207-7a88fb7ce338.jpg', // Colored cotton spools
-      acid: '/images/photo-1557672172-298e090bd0f1.jpg', // Colorants synthesis liquid swish
-      direct: '/images/photo-1607613009820-a29f7bb81c04.jpg', // Segregated chemical storage drums
-      disperse: '/images/photo-1557682250-33bd709cbe85.jpg', // Textile dye/colored gradients
-      naphthol: '/images/photo-1528207776546-365bb710ee93.jpg', // Deep red/orange colorant liquid swirl
-      pigments: '/images/photo-1595246140625-573b715d11dc.jpg' // Pigment powders/vats
+      reactive: '/images/reactive_dyes.webp', // Reactive Dyes
+      acid: '/images/acid_dyes.webp', // Acid Dyes
+      direct: '/images/direct_dyes.webp', // Direct Dyes
+      disperse: '/images/disperse.jpg', // Disperse Dyes (using high-quality Unsplash backup)
+      naphthol: '/images/naphthol_fast_bases.webp', // Naphthol & Fast Bases
+      pigments: '/images/organic_inorganic_pigments.webp' // Organic & Inorganic Pigments
     }
   };
 
@@ -33,15 +49,40 @@ export default function Home() {
       <SEO title="Home" />
       
       {/* 1. HERO SLIDER SECTION (Adapted from Industrie Oil & Gas banner style) */}
-      <section className="relative min-h-[90svh] flex items-center pt-36 md:pt-44 pb-36 px-6 md:px-12 bg-slate-950 text-white overflow-hidden">
+      <section className="relative min-h-[90svh] flex items-center pt-36 md:pt-44 pb-36 px-6 md:px-12 bg-slate-950 text-white overflow-hidden group">
         
-        {/* Background Image with Overlay */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60 z-0"
-          style={{ backgroundImage: `url(${images.heroBg})` }}
-        />
+        {/* Background Images Slider */}
+        {slideImages.map((src, index) => (
+          <div
+            key={src}
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out z-0"
+            style={{
+              backgroundImage: `url(${src})`,
+              opacity: index === currentSlide ? 0.6 : 0,
+            }}
+          />
+        ))}
+        
+        {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/65 z-1" />
-        
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-28 left-1/2 -translate-x-1/2 z-10 flex space-x-3">
+          {slideImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`h-1.5 rounded-full transition-all duration-500 ${
+                index === currentSlide 
+                  ? 'w-8 bg-cyan' 
+                  : 'w-2 bg-slate-500/50 hover:bg-slate-400'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
+
         <div className="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -141,30 +182,22 @@ export default function Home() {
       <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Images Grid Left */}
-          <div className="lg:col-span-6 grid grid-cols-2 gap-4 relative">
-            <div className="space-y-4">
-              <img 
-                src={images.aboutLab} 
-                alt="Analytical Testing Lab Kapoor Dyes" 
-                className="w-full h-64 object-cover rounded-xl shadow shadow-slate-200"
-              />
-              <div className="bg-royal text-white p-6 rounded-xl text-center shadow-lg relative overflow-hidden">
-                <div className="absolute top-0 right-0 -mr-6 -mt-6 w-16 h-16 bg-white/10 rounded-full blur-xl" />
-                <span className="text-4xl md:text-5xl font-heading font-extrabold block">
-                  <AnimatedCounter end={60} />+
-                </span>
-                <span className="text-[10px] uppercase tracking-widest font-heading font-bold mt-2 block text-cyan">
-                  Years Industry Presence
-                </span>
-              </div>
-            </div>
-            <div className="pt-8">
-              <img 
-                src={images.aboutDyes} 
-                alt="Dyestuff Pigments Kapoor Dyes" 
-                className="w-full h-96 object-cover rounded-xl shadow shadow-slate-200"
-              />
+          {/* Single Image Left with Overlay Badge */}
+          <div className="lg:col-span-6 relative">
+            <img 
+              src={images.aboutDyes} 
+              alt="Kapoor Dyes Quality Dyestuffs" 
+              className="w-full h-[460px] object-cover rounded-2xl shadow-lg border border-slate-200/50"
+            />
+            {/* Absolute Overlay Stats Badge */}
+            <div className="absolute bottom-6 right-6 bg-navy text-white px-8 py-6 rounded-2xl shadow-xl text-center border border-slate-800/80 overflow-hidden min-w-[180px]">
+              <div className="absolute top-0 right-0 -mr-6 -mt-6 w-16 h-16 bg-white/10 rounded-full blur-xl" />
+              <span className="text-4xl md:text-5xl font-heading font-extrabold block">
+                <AnimatedCounter end={60} />+
+              </span>
+              <span className="text-[10px] uppercase tracking-widest font-heading font-bold mt-2 block text-cyan">
+                Years Industry Presence
+              </span>
             </div>
           </div>
 
@@ -325,11 +358,11 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {companyInfo.industries.map((ind, idx) => {
             const indImages = [
-              '/images/photo-1515562141207-7a88fb7ce338.jpg', // Textile spools
-              '/images/photo-1548036328-c9fa89d128fa.jpg', // Leather texture
+              '/images/textile_industry.webp', // Textile Industry (user uploaded custom image)
+              '/images/leather_industry.webp', // Leather Industry (user uploaded custom image)
               '/images/photo-1616628188506-4ad99d65640e.jpg', // Paper mill rolls
-              '/images/photo-1600121848594-d8644e57abab.jpg', // Carpet tapestry
-              '/images/photo-1506059612708-99d6c258160e.jpg', // Printing press
+              '/images/carpet_industry.webp', // Carpet Industry (user uploaded custom image)
+              '/images/printing_industry.webp', // Printing Industry (user uploaded custom image)
               '/images/photo-1513828583688-c52646db42da.jpg'  // Industrial Chemicals
             ];
             const cardImg = indImages[idx];

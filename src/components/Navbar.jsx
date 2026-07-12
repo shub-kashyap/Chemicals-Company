@@ -29,12 +29,11 @@ export default function Navbar() {
   }, [location]);
 
   const navLinks = [
-    { name: 'Home', path: '/' },
+    { name: 'Home', path: '/home' },
     { name: 'Company Profile', path: '/about' },
-    { name: 'Products', path: '/products' },
+    { name: 'Products', path: '/products', hasSub: true },
     { name: 'Infrastructure', path: '/infrastructure' },
     { name: 'Quality', path: '/quality' },
-    { name: 'Export', path: '/export' },
     { name: 'Contact Us', path: '/contact' }
   ];
 
@@ -53,9 +52,9 @@ export default function Navbar() {
           <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
             
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-royal to-cyan flex items-center justify-center text-white font-heading font-bold text-lg shadow-md group-hover:scale-105 transition-transform duration-300">
-                K
+            <Link to="/home" className="flex items-center space-x-3 group">
+              <div className="w-10 h-10 rounded-xl bg-[#FACC15] flex items-center justify-center text-[#0F172A] font-heading font-bold text-[15px] shadow-md group-hover:scale-105 transition-transform duration-300">
+                KD
               </div>
               <div className="flex flex-col">
                 <span className="font-heading font-bold tracking-tight leading-none text-lg md:text-xl transition-colors duration-300 text-white group-hover:text-royal">

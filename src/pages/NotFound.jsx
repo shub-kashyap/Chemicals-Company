@@ -36,7 +36,7 @@ export default function NotFound() {
 
           <div className="pt-4">
             <Link
-              to="/"
+              to="/home"
               className="inline-flex items-center space-x-2 bg-royal hover:bg-royal-dark text-navy font-heading font-bold text-xs uppercase tracking-widest px-6 py-3.5 rounded-xl shadow-md transition-all"
             >
               <FiArrowLeft />
