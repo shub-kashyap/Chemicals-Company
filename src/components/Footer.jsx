@@ -101,16 +101,16 @@ export default function Footer() {
             <p className="leading-relaxed font-sans">
               {companyInfo.contacts.corporateOffice.address}
             </p>
-            <div className="flex flex-wrap gap-4 mt-2 font-mono">
-              <span className="flex items-center space-x-1">
-                <FiPhone />
-                <a href={`tel:${companyInfo.contacts.corporateOffice.phone.replace(/\s+/g, '')}`} className="hover:text-white transition-colors">
+            <div className="flex flex-wrap gap-x-6 gap-y-2 mt-3 font-sans text-xs">
+              <span className="flex items-center space-x-2 text-slate-300">
+                <FiPhone className="text-royal text-sm flex-shrink-0" />
+                <a href={`tel:${companyInfo.contacts.corporateOffice.phone.replace(/\s+/g, '')}`} className="hover:text-royal hover:underline transition-all font-semibold">
                   {companyInfo.contacts.corporateOffice.phone}
                 </a>
               </span>
-              <span className="flex items-center space-x-1">
-                <FiMail />
-                <a href={`mailto:${companyInfo.contacts.corporateOffice.email}`} className="hover:text-white transition-colors">
+              <span className="flex items-center space-x-2 text-slate-300">
+                <FiMail className="text-royal text-sm flex-shrink-0" />
+                <a href={`mailto:${companyInfo.contacts.corporateOffice.email}`} className="hover:text-royal hover:underline transition-all font-semibold">
                   {companyInfo.contacts.corporateOffice.email}
                 </a>
               </span>
@@ -125,10 +125,10 @@ export default function Footer() {
             <p className="leading-relaxed font-sans">
               {companyInfo.contacts.kanpurBranch.address}
             </p>
-            <div className="flex flex-wrap gap-4 mt-2 font-mono">
-              <span className="flex items-center space-x-1">
-                <FiPhone />
-                <a href={`tel:${companyInfo.contacts.kanpurBranch.phone.replace(/\s+/g, '')}`} className="hover:text-white transition-colors">
+            <div className="flex flex-wrap gap-x-6 gap-y-2 mt-3 font-sans text-xs">
+              <span className="flex items-center space-x-2 text-slate-300">
+                <FiPhone className="text-cyan text-sm flex-shrink-0" />
+                <a href={`tel:${companyInfo.contacts.kanpurBranch.phone.replace(/\s+/g, '')}`} className="hover:text-cyan hover:underline transition-all font-semibold">
                   {companyInfo.contacts.kanpurBranch.phone}
                 </a>
               </span>

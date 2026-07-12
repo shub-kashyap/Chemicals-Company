@@ -214,7 +214,7 @@ export default function Home() {
             </p>
             
             <div className="border-l-4 border-royal pl-4 italic text-slate-500 text-sm font-sans my-4">
-              "Laboratories can reduce risk by implementing a proven and internationally accepted quality assurance technology that is applicable across the globe." — Richard Curtis
+              "Laboratories can reduce risk by implementing a proven and internationally accepted quality assurance technology that is applicable across the globe."
             </div>
             
             <div className="grid grid-cols-2 gap-4 text-xs font-heading font-bold text-navy">

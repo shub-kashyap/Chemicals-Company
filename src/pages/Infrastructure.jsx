@@ -15,7 +15,7 @@ export default function Infrastructure() {
       title: 'Reactor Synthesis Line',
       category: 'Production',
       desc: '10 operational reactors with capacities up to 10,000 liters under automated control.',
-      image: '/images/photo-1504917595217-d4dc5ebe6122.jpg',
+      image: '/images/gallery_reactor.webp',
       stat: '10,000L Capacity'
     },
     {
@@ -23,7 +23,7 @@ export default function Infrastructure() {
       title: 'Analytical Testing Lab',
       category: 'Research & QA',
       desc: 'Equipped with sophisticated spectrophotometers for color strength and tone evaluation.',
-      image: '/images/photo-1582719508461-905c673771fd.jpg',
+      image: '/images/gallery_lab.webp',
       stat: 'Spectrophotometry'
     },
     {
@@ -31,7 +31,7 @@ export default function Infrastructure() {
       title: 'Dye Finishing Line',
       category: 'Finishing',
       desc: 'International standard finishing mills, spray dryers, and pulverizers.',
-      image: '/images/photo-1576086213369-97a306d36557.jpg',
+      image: '/images/gallery_finishing.webp',
       stat: 'Standardized Milling'
     },
     {
@@ -39,7 +39,7 @@ export default function Infrastructure() {
       title: 'Material Packing & Sealing',
       category: 'Logistics',
       desc: 'Latest moisture-barrier packaging to ensure chemical stability during global shipping.',
-      image: '/images/photo-1607613009820-a29f7bb81c04.jpg',
+      image: '/images/gallery_packing.webp',
       stat: 'Moisture-Barrier Seal'
     },
     {
@@ -47,7 +47,7 @@ export default function Infrastructure() {
       title: 'Raw Material Warehouse',
       category: 'Storage',
       desc: 'Segregated storage area maintaining dry conditions for reactive intermediates.',
-      image: '/images/photo-1586528116311-ad8dd3c8310d.jpg',
+      image: '/images/gallery_warehouse.webp',
       stat: '6,000 m² Facility'
     },
     {
@@ -55,7 +55,7 @@ export default function Infrastructure() {
       title: 'Product Dispatch Dock',
       category: 'Logistics',
       desc: 'Optimized logistics workflow ensuring timely container dispatch to Gujarat ports.',
-      image: '/images/photo-1542751371-adc38448a05e.jpg',
+      image: '/images/gallery_dispatch.webp',
       stat: 'Global Export Ready'
     }
   ];
@@ -121,11 +121,8 @@ export default function Infrastructure() {
             <div className="glass bg-gradient-to-tr from-slate-900 to-navy text-white p-8 rounded-2xl border border-slate-800 shadow-lg relative overflow-hidden">
               <div className="absolute top-0 right-0 -mr-16 -mt-16 w-32 h-32 bg-cyan/10 rounded-full blur-2xl pointer-events-none" />
               <div className="text-3xl font-serif text-cyan/20">“</div>
-              <p className="text-sm font-sans italic leading-relaxed mb-4 relative z-10">
+              <p className="text-sm font-sans italic leading-relaxed relative z-10">
                 "{companyInfo.labQuote}"
-              </p>
-              <p className="text-xs uppercase font-heading font-bold text-cyan tracking-wider relative z-10">
-                — {companyInfo.labQuoteAuthor}
               </p>
             </div>
           </motion.div>

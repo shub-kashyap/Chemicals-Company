@@ -9,7 +9,7 @@ export const companyInfo = {
   qualityQuote: 'Quality is not an act, it is a Habit.',
   qualityQuoteAuthor: 'Aristotle',
   labQuote: 'Laboratories can reduce risk by implementing a proven and internationally accepted quality assurance technology that is applicable across the globe.',
-  labQuoteAuthor: 'Richard Curtis',
+  labQuoteAuthor: '',
   
   history: [
     {
@@ -98,30 +98,30 @@ export const companyInfo = {
     corporateOffice: {
       title: 'Corporate Office & Ahmedabad Factory',
       address: 'C 1 / 125, GIDC Phase 2, Vatva, Ahmedabad - 382 445, Gujarat, India.',
-      phone: '(0091) (79) 48010338',
+      phone: '+91 79 4801 0338',
       email: 'shubkashyap806@gmail.com',
       emailAlt: ''
     },
     kanpurBranch: {
       title: 'Kanpur Branch Office & Works',
       address: '14 - B, Dada Nagar Industrial Area, Kanpur - 208 022, Uttar Pradesh, India.',
-      phone: '(0091) (512) 2366520'
+      phone: '+91 512 236 6520'
     },
     keyContacts: [
       {
         name: 'Mr. S.R. Kapoor',
         role: 'Technical Support',
-        phone: '(0091) 9415480517'
+        phone: '+91 94154 80517'
       },
       {
         name: 'Mr. S.S. Kapoor',
         role: 'Indian Sales & Purchase',
-        phone: '(0091) 9415041481'
+        phone: '+91 94150 41481'
       },
       {
         name: 'Mr. Ankit Kapoor',
         role: 'International Business / Quick Contact',
-        phone: '(0091) 9838441481',
+        phone: '+91 98384 41481',
         email: 'shubkashyap806@gmail.com'
       }
     ]
