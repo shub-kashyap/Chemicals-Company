@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { motion as framerMotion, AnimatePresence } from 'framer-motion';
-import { FiSearch, FiLayers, FiCheck, FiX, FiInfo, FiTag, FiChevronDown } from 'react-icons/fi';
+import { FiSearch, FiLayers, FiCheck, FiX, FiInfo, FiTag, FiChevronDown, FiDownload } from 'react-icons/fi';
 import { productCategories, productsList } from '../data/productsData';
 import SEO from '../components/SEO';
+import { generateTDS } from '../utils/generateTDS';
 
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -53,7 +54,7 @@ export default function Products() {
       <section className="relative h-[360px] md:h-[440px] flex flex-col justify-end bg-slate-900 text-white overflow-hidden pb-12 md:pb-16">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100"
-          style={{ backgroundImage: `url(/images/products_hero.webp)` }}
+          style={{ backgroundImage: `url(/images/products_hero_new.jpg)` }}
         />
         <div className="absolute inset-0 bg-black/45" />
         
@@ -266,7 +267,7 @@ export default function Products() {
                                   return (
                                     <td key={hIdx} className="px-6 py-4">
                                       <div 
-                                        className="w-12 h-12 rounded-full border border-slate-200 shadow-sm flex-shrink-0"
+                                        className="w-16 h-16 rounded-full border border-slate-200 shadow-sm flex-shrink-0"
                                         style={{ backgroundColor: item.hex05 || item.hex || '#E2E8F0' }}
                                         title="0.5% Shade"
                                       />
@@ -277,7 +278,7 @@ export default function Products() {
                                   return (
                                     <td key={hIdx} className="px-6 py-4">
                                       <div 
-                                        className="w-12 h-12 rounded-full border border-slate-200 shadow-sm flex-shrink-0"
+                                        className="w-16 h-16 rounded-full border border-slate-200 shadow-sm flex-shrink-0"
                                         style={{ backgroundColor: item.hex20 || item.hex || '#E2E8F0' }}
                                         title="2.0% Shade"
                                       />
@@ -290,7 +291,7 @@ export default function Products() {
                                       <div className="flex items-center space-x-4">
                                         {!series.headers.some(h => h.includes('0.5%')) && (
                                           <div 
-                                            className="w-12 h-12 rounded-full border border-slate-200 shadow-sm flex-shrink-0"
+                                            className="w-16 h-16 rounded-full border border-slate-200 shadow-sm flex-shrink-0"
                                             style={{ backgroundColor: item.hex || '#E2E8F0' }}
                                             title={item.shade}
                                           />
@@ -312,7 +313,14 @@ export default function Products() {
                               })}
                               
                               {/* Actions */}
-                              <td className="px-6 py-4 text-right">
+                              <td className="px-6 py-4 text-right flex items-center justify-end space-x-2">
+                                <button
+                                  onClick={() => generateTDS(item, categoryData)}
+                                  className="inline-flex items-center justify-center bg-slate-100 hover:bg-royal hover:text-navy text-slate-600 p-2 rounded-lg transition-all"
+                                  title="Download TDS Sheet (PDF)"
+                                >
+                                  <FiDownload size={14} />
+                                </button>
                                 <button
                                   onClick={() => setSelectedProduct({ ...item, categoryName: categoryData.name, features: categoryData.features, applications: categoryData.applications })}
                                   className="inline-flex items-center space-x-1 bg-royal/10 hover:bg-royal text-royal hover:text-white font-heading font-bold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all"
@@ -371,21 +379,21 @@ export default function Products() {
                 <div className="bg-slate-50 border-b border-slate-200 px-6 py-5 flex justify-between items-center">
                   <div className="flex items-center space-x-3">
                     {selectedProduct.hex05 && selectedProduct.hex20 ? (
-                      <div className="flex space-x-1.5 flex-shrink-0">
+                      <div className="flex space-x-2 flex-shrink-0">
                         <div 
-                          className="w-7 h-7 rounded-full border border-slate-300 shadow-sm"
+                          className="w-12 h-12 rounded-full border border-slate-300 shadow-sm"
                           style={{ backgroundColor: selectedProduct.hex05 }}
                           title="0.5% Shade"
                         />
                         <div 
-                          className="w-7 h-7 rounded-full border border-slate-300 shadow-sm"
+                          className="w-12 h-12 rounded-full border border-slate-300 shadow-sm"
                           style={{ backgroundColor: selectedProduct.hex20 }}
                           title="2.0% Shade"
                         />
                       </div>
                     ) : (
                       <div 
-                        className="w-7 h-7 rounded-full border border-slate-300 flex-shrink-0"
+                        className="w-12 h-12 rounded-full border border-slate-300 flex-shrink-0"
                         style={{ backgroundColor: selectedProduct.hex || '#E2E8F0' }}
                       />
                     )}
@@ -416,13 +424,13 @@ export default function Products() {
                     <div>
                       <span className="text-xs text-slate-400 uppercase tracking-wider block">Color/Shade</span>
                       {selectedProduct.hex05 && selectedProduct.hex20 ? (
-                        <div className="flex items-center space-x-3 mt-1.5">
-                          <div className="flex items-center space-x-1">
-                            <div className="w-5 h-5 rounded-full border border-slate-300" style={{ backgroundColor: selectedProduct.hex05 }} />
+                        <div className="flex items-center space-x-4 mt-1.5">
+                          <div className="flex items-center space-x-1.5">
+                            <div className="w-8 h-8 rounded-full border border-slate-300 shadow-sm" style={{ backgroundColor: selectedProduct.hex05 }} />
                             <span className="text-xs font-heading font-bold text-navy">0.5%</span>
                           </div>
-                          <div className="flex items-center space-x-1">
-                            <div className="w-5 h-5 rounded-full border border-slate-300" style={{ backgroundColor: selectedProduct.hex20 }} />
+                          <div className="flex items-center space-x-1.5">
+                            <div className="w-8 h-8 rounded-full border border-slate-300 shadow-sm" style={{ backgroundColor: selectedProduct.hex20 }} />
                             <span className="text-xs font-heading font-bold text-navy">2.0%</span>
                           </div>
                         </div>
@@ -465,12 +473,21 @@ export default function Products() {
                 {/* Footer */}
                 <div className="bg-slate-50 border-t border-slate-200 px-6 py-4 flex justify-between items-center">
                   <span className="text-[10px] text-slate-400 font-bold uppercase">ISO 9001:2015 Registered</span>
-                  <a
-                    href={`mailto:shubkashyap806@gmail.com?subject=Enquiry for product ${selectedProduct.name} (${selectedProduct.ci})`}
-                    className="bg-royal hover:bg-royal-dark text-navy font-heading font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-lg shadow transition-colors"
-                  >
-                    Send Inquiry
-                  </a>
+                  <div className="flex items-center space-x-3">
+                    <button
+                      onClick={() => generateTDS(selectedProduct, { name: selectedProduct.categoryName, features: selectedProduct.features, applications: selectedProduct.applications })}
+                      className="bg-slate-200 hover:bg-slate-300 text-navy font-heading font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-lg flex items-center space-x-1.5 transition-colors"
+                    >
+                      <FiDownload />
+                      <span>TDS PDF</span>
+                    </button>
+                    <a
+                      href={`mailto:shubkashyap806@gmail.com?subject=Enquiry for product ${selectedProduct.name} (${selectedProduct.ci})`}
+                      className="bg-royal hover:bg-royal-dark text-navy font-heading font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-lg shadow transition-colors"
+                    >
+                      Send Inquiry
+                    </a>
+                  </div>
                 </div>
               </framerMotion.div>
             </div>

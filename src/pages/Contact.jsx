@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FiMail, FiPhone, FiMapPin, FiUser, FiSend, FiCheck, FiMessageSquare } from 'react-icons/fi';
+import { FiMail, FiPhone, FiMapPin, FiUser, FiSend, FiCheck, FiMessageSquare, FiChevronDown } from 'react-icons/fi';
 import { companyInfo } from '../data/companyData';
 import SEO from '../components/SEO';
 
@@ -193,6 +193,17 @@ export default function Contact() {
                         {contact.phone}
                       </a>
                     </div>
+                    {contact.name.includes("Ankit") && (
+                      <div className="mt-2">
+                        <Link 
+                          to="/digital-card" 
+                          className="inline-flex items-center space-x-1 bg-royal/10 hover:bg-royal/20 text-royal font-heading font-bold text-[9px] uppercase tracking-wider px-2.5 py-1 rounded-lg transition-colors"
+                        >
+                          <FiUser />
+                          <span>View Digital Card</span>
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -291,22 +302,27 @@ export default function Contact() {
                     </div>
                     <div>
                       <label className="block text-slate-500 mb-1.5 uppercase font-bold tracking-wider">Target Product Category</label>
-                      <select
-                        name="product"
-                        value={formData.product}
-                        onChange={handleInputChange}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-navy focus:outline-none focus:border-royal transition-colors text-xs appearance-none"
-                      >
-                        <option value="">Select Category...</option>
-                        <option value="Reactive Dyes">Reactive Dyes</option>
-                        <option value="Acid Dyes">Acid Dyes</option>
-                        <option value="Direct Dyes">Direct Dyes</option>
-                        <option value="Disperse Dyes">Disperse Dyes</option>
-                        <option value="Naphthols & Bases">Naphthols & Bases</option>
-                        <option value="Organic & Inorganic Pigments">Organic & Inorganic Pigments</option>
-                        <option value="Basic Dyes">Basic Dyes</option>
-                        <option value="Optical Brighteners">Optical Brighteners</option>
-                      </select>
+                      <div className="relative">
+                        <select
+                          name="product"
+                          value={formData.product}
+                          onChange={handleInputChange}
+                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 pr-10 text-navy focus:outline-none focus:border-royal transition-colors text-xs appearance-none cursor-pointer"
+                        >
+                          <option value="">Select Category...</option>
+                          <option value="Reactive Dyes">Reactive Dyes</option>
+                          <option value="Acid Dyes">Acid Dyes</option>
+                          <option value="Direct Dyes">Direct Dyes</option>
+                          <option value="Disperse Dyes">Disperse Dyes</option>
+                          <option value="Naphthols & Bases">Naphthols & Bases</option>
+                          <option value="Organic & Inorganic Pigments">Organic & Inorganic Pigments</option>
+                          <option value="Basic Dyes">Basic Dyes</option>
+                          <option value="Optical Brighteners">Optical Brighteners</option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
+                          <FiChevronDown size={14} />
+                        </div>
+                      </div>
                     </div>
                   </div>
 

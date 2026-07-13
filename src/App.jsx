@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
 import SmoothScroll from './components/SmoothScroll';
+import WhatsAppButton from './components/WhatsAppButton';
 
 // Pages
 import Home from './pages/Home';
@@ -16,6 +17,7 @@ import Infrastructure from './pages/Infrastructure';
 import Quality from './pages/Quality';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
+import DigitalCard from './pages/DigitalCard';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -24,6 +26,9 @@ function App() {
   // Scroll to top of the page on route change
   useEffect(() => {
     window.scrollTo(0, 0);
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { immediate: true });
+    }
   }, [location.pathname]);
 
   return (
@@ -42,12 +47,14 @@ function App() {
                 <Routes location={location} key={location.pathname}>
                   <Route path="/" element={<Navigate to="/home" replace />} />
                   <Route path="/home" element={<Home />} />
-                  <Route path="/about" element={<About />} />
+                  <Route path="/company-profile" element={<About />} />
                   <Route path="/products" element={<Products />} />
                   <Route path="/infrastructure" element={<Infrastructure />} />
                   <Route path="/quality" element={<Quality />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/enquiry" element={<Contact />} />
+                  <Route path="/digital-card" element={<DigitalCard />} />
+                  <Route path="/bizcard" element={<DigitalCard />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </AnimatePresence>
@@ -55,6 +62,9 @@ function App() {
 
             {/* Footer */}
             <Footer />
+
+            {/* Floating WhatsApp Action Button */}
+            <WhatsAppButton />
           </div>
         </SmoothScroll>
       )}

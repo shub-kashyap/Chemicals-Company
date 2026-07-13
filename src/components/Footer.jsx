@@ -55,7 +55,7 @@ export default function Footer() {
                 <Link to="/home" className="hover:text-cyan transition-colors duration-200">Home</Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-cyan transition-colors duration-200">Company Profile</Link>
+                <Link to="/company-profile" className="hover:text-cyan transition-colors duration-200">Company Profile</Link>
               </li>
               <li>
                 <Link to="/infrastructure" className="hover:text-cyan transition-colors duration-200">Infrastructure</Link>
@@ -65,6 +65,9 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/contact" className="hover:text-cyan transition-colors duration-200">Contact Us</Link>
+              </li>
+              <li>
+                <Link to="/digital-card" className="hover:text-cyan transition-colors duration-200">Digital Card</Link>
               </li>
             </ul>
           </div>

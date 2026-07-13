@@ -170,7 +170,7 @@ export default function Home() {
                 Our core differential edge. We custom-formulate dye properties and shade parameters in our testing laboratory to match the specific fabric substrates requested by B2B clients.
               </p>
             </div>
-            <Link to="/about" className="mt-6 inline-flex items-center space-x-1 text-xs font-bold text-royal group-hover:text-cyan transition-colors">
+            <Link to="/company-profile" className="mt-6 inline-flex items-center space-x-1 text-xs font-bold text-royal group-hover:text-cyan transition-colors">
               <span>Read Core Values</span>
               <FiArrowRight />
             </Link>
@@ -237,7 +237,7 @@ export default function Home() {
             </div>
 
             <Link
-              to="/about"
+              to="/company-profile"
               className="inline-flex items-center space-x-2 bg-navy hover:bg-navy-dark text-white font-heading font-bold text-xs uppercase tracking-widest px-6 py-3.5 rounded transition-all"
             >
               <span>Our Profile Story</span>

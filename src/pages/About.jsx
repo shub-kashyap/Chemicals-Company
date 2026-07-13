@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FiAward, FiEye, FiTarget, FiTrendingUp } from 'react-icons/fi';
+import { FiAward, FiEye, FiTarget } from 'react-icons/fi';
 import { companyInfo } from '../data/companyData';
 import SEO from '../components/SEO';
 
@@ -179,6 +179,57 @@ export default function About() {
               </p>
             </motion.div>
           </div>
+        </section>
+
+        {/* Section: Certificate & Registration */}
+        <section className="py-16 px-6 md:px-12 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -35 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-7 flex flex-col space-y-6"
+          >
+            <span className="text-xs font-heading font-bold text-royal uppercase tracking-widest block">
+              OFFICIAL CERTIFICATION
+            </span>
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-navy leading-tight">
+              ISO 9001:2015 Certified QMS Registration
+            </h2>
+            <p className="text-slate-600 text-sm leading-relaxed font-sans text-justify">
+              Kapoor Dyes & Chemicals Company holds an official ISO 9001:2015 Registration, certified by **DBS Certifications**. This registration underscores our commitment to providing standardized chemical products that consistently meet customer and regulatory requirements.
+            </p>
+            <p className="text-slate-600 text-sm leading-relaxed font-sans text-justify">
+              The scope of our Quality Management System registry covers the manufacturing, trading, export, and global supply of Reactive Dyes, Acid Dyes, Direct Dyes, Basic Dyes, Disperse Dyes, Organic & Inorganic Pigments, and Optical Brightening Agents.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-l-2 border-royal pl-4 py-1 text-xs font-sans text-slate-500">
+              <div><strong>Registration No:</strong> Q-205020121102</div>
+              <div><strong>Certification Body:</strong> DBS Certifications</div>
+              <div><strong>Initial Date:</strong> 11/12/2020</div>
+              <div><strong>Certificate Validity:</strong> ISO 9001:2015 Standard</div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 35 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-5 flex justify-center"
+          >
+            <div className="glass bg-white p-4 rounded-3xl border border-slate-200 shadow-soft overflow-hidden w-full max-w-sm hover:shadow-lg transition-shadow duration-300">
+              <div className="block overflow-hidden rounded-2xl">
+                <img 
+                  src="/images/ISO-KDCPL.jpg" 
+                  alt="ISO 9001:2015 Certificate DBS Certifications" 
+                  className="w-full h-auto object-contain transition-transform duration-500 hover:scale-102"
+                />
+              </div>
+              <p className="text-[10px] text-center text-slate-400 font-heading font-semibold uppercase tracking-wider mt-3">
+                DBS Quality Management System Certificate
+              </p>
+            </div>
+          </motion.div>
         </section>
 
         {/* Section: Technical Expertise & Lab QA Testing */}

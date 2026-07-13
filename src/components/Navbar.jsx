@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX, FiChevronDown, FiGlobe, FiLayers, FiMail, FiPhone, FiClock } from 'react-icons/fi';
+import { FiMenu, FiX, FiChevronDown, FiLayers, FiMail } from 'react-icons/fi';
 import { productCategories } from '../data/productsData';
 
 export default function Navbar() {
@@ -30,7 +30,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', path: '/home' },
-    { name: 'Company Profile', path: '/about' },
+    { name: 'Company Profile', path: '/company-profile' },
     { name: 'Products', path: '/products', hasSub: true },
     { name: 'Infrastructure', path: '/infrastructure' },
     { name: 'Quality', path: '/quality' },

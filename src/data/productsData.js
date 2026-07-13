@@ -46,22 +46,6 @@ export const productCategories = [
     description: 'With vast market experience and presence, we offer premium organic and inorganic pigments tailored for the printing ink, paint, plastic, cosmetics, and textile printing industries.',
     applications: ['Industrial Paints & Coatings', 'Plastics Masterbatches', 'Printing Inks', 'Cosmetics', 'Textile Printing Paste', 'Rubber Industry'],
     features: ['Excellent Dispersion', 'High Heat Stability', 'Weather & Light Fastness', 'Vibrant Color Strength', 'Strict Particle Size Control']
-  },
-  {
-    id: 'basic_dyes',
-    name: 'Basic Dyes',
-    shortDesc: 'Cationic dyes with high brilliance, mainly used for acrylic, modacrylic, paper, and leather coloring.',
-    description: 'Basic Dyes are cationic colorants characterized by brilliant shades and high tinctorial strength. While traditionally used for silk, wool, and paper, they are the primary choice for acrylic and modacrylic fibers, offering excellent brightness and fastness properties on synthetics.',
-    applications: ['Acrylic Fiber Dyeing', 'Paper & Cardboard Coloring', 'Leather Finishing', 'Silk & Wool Specialty Dyeing', 'Jute & Coir Dyeing'],
-    features: ['Highest Brilliance', 'Intense Color Strength', 'Excellent Compatibility on Acrylics', 'Good Leveling properties']
-  },
-  {
-    id: 'brighteners',
-    name: 'Optical Brighteners & Ultramarine Blue',
-    shortDesc: 'Fluorescent whitening agents and premium ultramarine pigments to enhance whiteness and brightness.',
-    description: 'We supply high-efficiency Optical Brightening Agents (OBA) and Ultramarine Blue. OBAs absorb ultraviolet light and re-emit it in the blue spectrum, compensating for yellowness, while Ultramarine Blue provides a premium, safe, reddish-blue shade for whitening and color correction.',
-    applications: ['Textile Whitening (Cotton, Polyester)', 'Paper Whitening', 'Detergent Formulations', 'Plastics & Coatings', 'Laundry Blueing'],
-    features: ['High Fluorescent Intensity', 'Acid & Alkali Stability', 'Excellent Heat Resistance', 'Pure Reddish-Blue Undertones', 'Non-Toxic and Eco-Friendly']
   }
 ];
 
@@ -132,14 +116,34 @@ export const productsList = {
       ]
     },
     {
-      series: 'Metal Complex Acid Dyes',
-      description: 'Formed by coordinating transition metal ions (like Chromium or Cobalt) with dye ligands. Economical option with outstanding light and wet fastness, yielding rich, muted shades.',
+      series: '1:1 Metal Complex Dyes',
+      description: 'Anionic monoazo dyes forming 1:1 coordination complexes with chromium ions. Provide high leveling capacity and moderate to good fastness properties.',
       headers: ['Shade on Nylon 0.5%', 'Shade on Nylon 2.0%', 'Dye Name', 'C.I. Generic Name'],
       items: [
-        { name: 'Grey SGL', ci: 'Acid Black 107', hex05: '#94A3B8', hex20: '#475569', shade: 'Muted Grey' },
-        { name: 'Pink BE', ci: 'Acid Red 186', hex05: '#FDA4AF', hex20: '#F43F5E', shade: 'Muted Pink' },
-        { name: 'Yellow M-5G', ci: 'Acid Yellow 110', hex05: '#FEF08A', hex20: '#CA8A04', shade: 'Golden Yellow' },
-        { name: 'Bordeaux B', ci: 'Acid Red 194', hex05: '#FDA4AF', hex20: '#9F1239', shade: 'Deep Bordeaux' }
+        { name: 'Yellow GR', ci: 'Acid Yellow 99', hex05: '#FFFFB3', hex20: '#E6C300', shade: 'Yellow' },
+        { name: 'Orange G', ci: 'Acid Orange 74', hex05: '#FFE0B3', hex20: '#CC7A00', shade: 'Orange' },
+        { name: 'Pink BE', ci: 'Acid Red 186', hex05: '#FFD1E6', hex20: '#B82E7A', shade: 'Pink' },
+        { name: 'Red 2G', ci: 'Acid Red 183', hex05: '#FFCCCC', hex20: '#B30000', shade: 'Red' },
+        { name: 'Blue 2G', ci: 'Acid Blue 158', hex05: '#D6E4FF', hex20: '#0044CC', shade: 'Blue' },
+        { name: 'Black WA', ci: 'Acid Black 52', hex05: '#6B7280', hex20: '#111827', shade: 'Black' }
+      ]
+    },
+    {
+      series: '1:2 Metal Complex Dyes',
+      description: 'Synthesized with two dye molecules coordinating to a single transition metal atom. Highly recommended for wool, silk, and nylon, offering outstanding wet fastness and light resistance.',
+      headers: ['Shade on Nylon 0.5%', 'Shade on Nylon 2.0%', 'Dye Name', 'C.I. Generic Name'],
+      items: [
+        { name: 'Yellow M3RL', ci: 'Acid Yellow 194', hex05: '#FFF099', hex20: '#D4A017', shade: 'Yellow' },
+        { name: 'Orange M2RL', ci: 'Acid Orange 142', hex05: '#FFD0A0', hex20: '#C35817', shade: 'Orange' },
+        { name: 'Bordeaux MB', ci: 'Acid Violet 90', hex05: '#FFA0D0', hex20: '#800040', shade: 'Bordeaux' },
+        { name: 'Brown MGRL', ci: 'Acid Brown 402', hex05: '#D2B48C', hex20: '#6E473B', shade: 'Brown' },
+        { name: 'Brown MBL', ci: 'Acid Brown 355', hex05: '#C4A482', hex20: '#5C3A21', shade: 'Brown' },
+        { name: 'Brown ME2RL', ci: 'Acid Brown 365', hex05: '#BFA080', hex20: '#503010', shade: 'Brown' },
+        { name: 'Acid Brown', ci: 'Acid Brown 282', hex05: '#D8B48F', hex20: '#653C1A', shade: 'Brown' },
+        { name: 'Scarlet ML', ci: 'Acid Red 357', hex05: '#FFB0B0', hex20: '#C00000', shade: 'Scarlet' },
+        { name: 'Red MBR', ci: 'Acid Red 362', hex05: '#FFA0A0', hex20: '#A52A2A', shade: 'Red' },
+        { name: 'Blue MTR', ci: 'Acid Blue 193', hex05: '#C0E0FF', hex20: '#000080', shade: 'Blue' },
+        { name: 'Grey SBL', ci: 'Acid Black 58', hex05: '#C0C0C0', hex20: '#404040', shade: 'Grey' }
       ]
     }
   ],
@@ -245,30 +249,6 @@ export const productsList = {
         { name: 'Pigment Yellow 34', ci: 'Middle Chrome', hex: '#EAB308', shade: 'Warm Chrome Yellow' },
         { name: 'Pigment Yellow 34 (Lemon)', ci: 'Lemon Chrome', hex: '#FDE047', shade: 'Greenish Yellow' },
         { name: 'Pigment Green 7', ci: 'Phthalocyanine Green', hex: '#047857', shade: 'Emerald Green' }
-      ]
-    }
-  ],
-  basic_dyes: [
-    {
-      series: 'Basic Dyes Range',
-      description: 'Specialty cationic colorants used for acrylics, paper, and leather, offering high tinctorial strength and excellent brilliance.',
-      headers: ['Subclass', 'Key Characteristics', 'Standard Applications'],
-      items: [
-        { name: 'Basic Yellows & Auramines', ci: 'Extremely bright and fluorescent', hex: '#FEF08A', shade: 'Acrylic fiber, craft paper' },
-        { name: 'Basic Rhodamines & Violets', ci: 'Highest tinctorial strength', hex: '#EC4899', shade: 'Fluorescent inks, specialty fabrics' },
-        { name: 'Basic Browns (Bismarck)', ci: 'Excellent build-up and penetration', hex: '#78350F', shade: 'Leather staining, wood polish' }
-      ]
-    }
-  ],
-  brighteners: [
-    {
-      series: 'Optical Whitening Agents (OBAs)',
-      description: 'Fluorescent whitening chemicals that absorb UV rays and emit blue light to counteract natural yellow tinting in cellulose/polyester.',
-      headers: ['Product Name', 'Target Fiber', 'Application Method'],
-      items: [
-        { name: 'Optical Brightener BA', ci: 'Cotton & Cellulosics', hex: '#EFF6FF', shade: 'Exhaust & Pad application' },
-        { name: 'Optical Brightener OB-1', ci: 'Polyester & Plastics', hex: '#F8FAFC', shade: 'Melt spin & high-temp exhaust' },
-        { name: 'Ultramarine Blue Pigment', ci: 'Cellulose, Detergent, Plastics', hex: '#1D4ED8', shade: 'Color correction blueing agent' }
       ]
     }
   ]

@@ -116,15 +116,6 @@ export default function Infrastructure() {
                 {companyInfo.infrastructure.team}
               </p>
             </div>
-
-            {/* Quote Block */}
-            <div className="glass bg-gradient-to-tr from-slate-900 to-navy text-white p-8 rounded-2xl border border-slate-800 shadow-lg relative overflow-hidden">
-              <div className="absolute top-0 right-0 -mr-16 -mt-16 w-32 h-32 bg-cyan/10 rounded-full blur-2xl pointer-events-none" />
-              <div className="text-3xl font-serif text-cyan/20">“</div>
-              <p className="text-sm font-sans italic leading-relaxed relative z-10">
-                "{companyInfo.labQuote}"
-              </p>
-            </div>
           </motion.div>
 
           <motion.div

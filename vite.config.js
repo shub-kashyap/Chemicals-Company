@@ -24,10 +24,6 @@ const localApiPlugin = () => ({
             // Import the actual handler
             const { default: handler } = await import('./api/send-inquiry.js');
             
-            // Add helper methods if needed by the handler, though it mostly uses basic res.status().json()
-            const originalJson = res.json;
-            const originalStatus = res.status;
-            
             res.status = function(code) {
               res.statusCode = code;
               return res;
