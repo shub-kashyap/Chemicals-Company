@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
 import SmoothScroll from './components/SmoothScroll';
 import WhatsAppButton from './components/WhatsAppButton';
+import CallButton from './components/CallButton';
 
 // Pages
 import Home from './pages/Home';
@@ -65,6 +66,9 @@ function App() {
 
             {/* Floating WhatsApp Action Button */}
             <WhatsAppButton />
+
+            {/* Floating Direct Call Action Button */}
+            <CallButton />
           </div>
         </SmoothScroll>
       )}
