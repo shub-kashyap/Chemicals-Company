@@ -15,45 +15,45 @@ export function generateTDS(product, category) {
   const cLight = { r: 248, g: 250, b: 252 }; // #F8FAFC
   const cBorder = { r: 226, g: 232, b: 240 }; // #E2E8F0
   
-  let y = 15;
+  let y = 20;
   
   // --- HEADER SECTION ---
-  // Top thick colored accent bar
-  doc.setFillColor(cRoyal.r, cRoyal.g, cRoyal.b);
-  doc.rect(margin, y, contentWidth, 3, 'F');
-  y += 10;
-  
-  // Company Logo Initials box
+  // Dark Navy Navbar Banner block (matches website navbar)
   doc.setFillColor(cNavy.r, cNavy.g, cNavy.b);
-  doc.rect(margin, y, 12, 12, 'F');
-  doc.setTextColor(255, 255, 255);
+  doc.rect(margin, y, contentWidth, 22, 'F');
+  
+  // Logo Initials box inside Navbar (Yellow bg like website logo)
+  doc.setFillColor(250, 204, 21); // #FACC15
+  doc.rect(margin + 5, y + 5, 12, 12, 'F');
+  doc.setTextColor(15, 23, 42); // Dark text
   doc.setFont("helvetica", "bold");
   doc.setFontSize(10);
-  doc.text("KD", margin + 3, y + 8.5);
+  doc.text("KD", margin + 8, y + 13.5);
   
-  // Company Name
-  doc.setTextColor(cNavy.r, cNavy.g, cNavy.b);
+  // Company Name inside Navbar (White text)
+  doc.setTextColor(255, 255, 255);
   doc.setFont("helvetica", "bold");
   doc.setFontSize(16);
-  doc.text("KAPOOR DYES & CHEMICALS COMPANY", margin + 16, y + 6);
+  doc.text("KAPOOR DYES & CHEMICALS COMPANY", margin + 22, y + 11);
   
-  // Company Sub-info
+  // Company Sub-info inside Navbar (Light slate text)
   doc.setFont("helvetica", "normal");
-  doc.setFontSize(8);
-  doc.setTextColor(cSlate.r, cSlate.g, cSlate.b);
-  doc.text("ISO 9001:2015 Certified Company  |  Est. 1966  |  Quality & Standardized Dyestuffs", margin + 16, y + 11);
-  y += 18;
+  doc.setFontSize(7.5);
+  doc.setTextColor(203, 213, 225); // #CBD5E1
+  doc.text("ISO 9001:2015 Certified Company  |  Est. 1966  |  Quality & Standardized Dyestuffs", margin + 22, y + 15.5);
   
-  // Address & Contacts Header Bar
+  y += 25;
+  
+  // Address & Contacts Header Bar (Placed below Logo/Navbar block)
   doc.setFillColor(cLight.r, cLight.g, cLight.b);
-  doc.rect(margin, y, contentWidth, 8, 'F');
+  doc.rect(margin, y, contentWidth, 12, 'F');
   doc.setFont("helvetica", "bold");
   doc.setFontSize(7.5);
   doc.setTextColor(cNavy.r, cNavy.g, cNavy.b);
-  doc.text("Works: Vatva, Ahmedabad, Gujarat & Dada Nagar, Kanpur, UP, India", margin + 3, y + 5.5);
-  doc.text("Email: ankit@kapoordyes.com  |  Web: www.kapoordyes.com", margin + contentWidth - 100, y + 5.5);
+  doc.text("Works: Vatva, Ahmedabad, Gujarat & Dada Nagar, Kanpur, UP, India", margin + 3, y + 4.5);
+  doc.text("Email: ankit@kapoordyes.com  |  Web: www.kapoordyes.com", margin + 3, y + 9);
   
-  y += 18;
+  y += 20;
   
   // --- DOCUMENT TITLE ---
   doc.setFont("helvetica", "bold");
@@ -194,7 +194,7 @@ export function generateTDS(product, category) {
   doc.setFontSize(7);
   doc.setTextColor(cSlate.r, cSlate.g, cSlate.b);
   doc.text("Kapoor Dyes & Chemicals Company | Technical Division | GIDC Vatva, Ahmedabad, Gujarat, India", margin, y + 4.5);
-  doc.text("Document Ref: KDC/TDS/" + product.name.replace(/\s+/g, '_').toUpperCase(), margin + contentWidth - 65, y + 4.5);
+  doc.text("Document Ref: KDC/TDS/" + product.name.replace(/\s+/g, '_').toUpperCase(), margin + contentWidth, y + 4.5, { align: 'right' });
   
   doc.save(`TDS_${product.name.replace(/\s+/g, '_')}.pdf`);
 }
