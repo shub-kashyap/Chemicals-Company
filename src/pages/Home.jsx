@@ -58,13 +58,14 @@ export default function Home() {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out z-0"
             style={{
               backgroundImage: `url(${src})`,
-              opacity: index === currentSlide ? 0.6 : 0,
+              opacity: index === currentSlide ? 0.9 : 0,
+              filter: 'brightness(1.1) contrast(1.05)'
             }}
           />
         ))}
         
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/65 z-1" />
+        <div className="absolute inset-0 bg-black/45 z-1" />
 
         {/* Slide Indicators */}
         <div className="absolute bottom-28 left-1/2 -translate-x-1/2 z-10 flex space-x-3">
