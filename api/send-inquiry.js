@@ -35,7 +35,7 @@ export default async function handler(req, res) {
 
   // Load Resend configuration from Environment Variables
   const resendApiKey = process.env.RESEND_API_KEY;
-  const recipientEmail = process.env.RECIPIENT_EMAIL || 'shubkashyap806@gmail.com';
+  const recipientEmail = process.env.RECIPIENT_EMAIL || 'ankit@kapoordyes.com';
   const senderEmail = process.env.SENDER_EMAIL || 'onboarding@resend.dev';
 
 // Demo fallback mode if RESEND_API_KEY is not configured

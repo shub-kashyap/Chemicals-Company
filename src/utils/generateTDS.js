@@ -51,7 +51,7 @@ export function generateTDS(product, category) {
   doc.setFontSize(7.5);
   doc.setTextColor(cNavy.r, cNavy.g, cNavy.b);
   doc.text("Works: Vatva, Ahmedabad, Gujarat & Dada Nagar, Kanpur, UP, India", margin + 3, y + 5.5);
-  doc.text("Email: shubkashyap806@gmail.com  |  Web: www.kapoordyes.com", margin + contentWidth - 100, y + 5.5);
+  doc.text("Email: ankit@kapoordyes.com  |  Web: www.kapoordyes.com", margin + contentWidth - 100, y + 5.5);
   
   y += 18;
   

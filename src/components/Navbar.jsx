@@ -236,8 +236,8 @@ export default function Navbar() {
               <a href="tel:+919838441481" className="block text-slate-100 font-heading font-bold text-lg mt-1 hover:text-cyan transition-colors">
                 +91 98384 41481
               </a>
-              <a href="mailto:shubkashyap806@gmail.com" className="block text-xs text-slate-400 hover:text-cyan mt-1 transition-colors">
-                shubkashyap806@gmail.com
+              <a href="mailto:ankit@kapoordyes.com" className="block text-xs text-slate-400 hover:text-cyan mt-1 transition-colors">
+                ankit@kapoordyes.com
               </a>
             </div>
           </motion.div>

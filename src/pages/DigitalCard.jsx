@@ -12,7 +12,7 @@ export default function DigitalCard() {
     role: "International Business / Quick Contact",
     company: "Kapoor Dyes & Chemicals Company",
     phone: "+91 98384 41481",
-    email: "shubkashyap806@gmail.com",
+    email: "ankit@kapoordyes.com",
     website: "https://kapoordyes.com",
     address: "C 1 / 125, GIDC Phase 2, Vatva, Ahmedabad - 382 445, Gujarat, India.",
     googleMapsUrl: "https://maps.google.com/?q=C+1+/+125,+GIDC+Phase+2,+Vatva,+Ahmedabad+-+382+445,+Gujarat,+India"
@@ -27,7 +27,7 @@ FN:Ankit Kapoor
 ORG:Kapoor Dyes & Chemicals Company
 TITLE:International Business / Sales Manager
 TEL;TYPE=CELL,VOICE,MSG:+919838441481
-EMAIL;TYPE=PREF,INTERNET:shubkashyap806@gmail.com
+EMAIL;TYPE=PREF,INTERNET:ankit@kapoordyes.com
 ADR;TYPE=WORK:;;C 1 / 125, GIDC Phase 2, Vatva;Ahmedabad;Gujarat;382445;India
 URL:https://kapoordyes.com
 NOTE:ISO 9001:2015 Certified Dyestuffs & Industrial Colorants Manufacturer.

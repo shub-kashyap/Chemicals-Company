@@ -482,7 +482,7 @@ export default function Products() {
                       <span>TDS PDF</span>
                     </button>
                     <a
-                      href={`mailto:shubkashyap806@gmail.com?subject=Enquiry for product ${selectedProduct.name} (${selectedProduct.ci})`}
+                      href={`mailto:ankit@kapoordyes.com?subject=Enquiry for product ${selectedProduct.name} (${selectedProduct.ci})`}
                       className="bg-royal hover:bg-royal-dark text-navy font-heading font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-lg shadow transition-colors"
                     >
                       Send Inquiry

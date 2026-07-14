@@ -99,7 +99,7 @@ export const companyInfo = {
       title: 'Corporate Office & Ahmedabad Factory',
       address: 'C 1 / 125, GIDC Phase 2, Vatva, Ahmedabad - 382 445, Gujarat, India.',
       phone: '+91 79 4801 0338',
-      email: 'shubkashyap806@gmail.com',
+      email: 'ankit@kapoordyes.com',
       emailAlt: ''
     },
     kanpurBranch: {
@@ -122,7 +122,7 @@ export const companyInfo = {
         name: 'Mr. Ankit Kapoor',
         role: 'International Business / Quick Contact',
         phone: '+91 98384 41481',
-        email: 'shubkashyap806@gmail.com'
+        email: 'ankit@kapoordyes.com'
       }
     ]
   },
