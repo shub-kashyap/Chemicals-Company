@@ -62,7 +62,19 @@ export default function Infrastructure() {
 
   return (
     <>
-      <SEO title="Infrastructure & Capacity" />
+      <SEO 
+        title="Manufacturing Infrastructure & Vatva Plant" 
+        description="Explore the state-of-the-art manufacturing infrastructure of Kapoor Dyes & Chemicals at GIDC Vatva, Ahmedabad. Featuring 10,000L synthesis reactors, spray dryers, and analytical QA labs."
+        keywords="Manufacturing Plant Vatva GIDC, Kapoor Dyes Infrastructure, Chemical Reactors Ahmedabad, Dyestuff Finishing Line, Chemical Warehouse India"
+        canonical="https://kapoordyes.com/infrastructure"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "ItemPage",
+          "name": "Manufacturing Infrastructure - Kapoor Dyes & Chemicals Company",
+          "description": "State-of-the-art chemical manufacturing infrastructure in Vatva GIDC, Ahmedabad.",
+          "url": "https://kapoordyes.com/infrastructure"
+        }}
+      />
       
       {/* Page Header Banner */}
       <section className="relative h-[360px] md:h-[440px] flex flex-col justify-end bg-slate-900 text-white overflow-hidden pb-12 md:pb-16">

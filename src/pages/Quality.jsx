@@ -48,7 +48,19 @@ export default function Quality() {
 
   return (
     <>
-      <SEO title="Quality Control & Certifications" />
+      <SEO 
+        title="ISO 9001:2015 Quality Policy & Lab Control" 
+        description="Kapoor Dyes & Chemicals Company operates under ISO 9001:2015 registration (QAIC/IN/91567-A). Batch standardization, spectrophotometric color matching, and strict QA protocols."
+        keywords="ISO 9001:2015 Dyes Manufacturer, Quality Control Dyestuffs, Spectrophotometry Color Matching, Batch Standardization Dyes, Kapoor Dyes Quality Policy"
+        canonical="https://kapoordyes.com/quality"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "ItemPage",
+          "name": "Quality Assurance & ISO 9001:2015 Policy - Kapoor Dyes",
+          "description": "ISO 9001:2015 certified quality control and testing policy for dyestuffs.",
+          "url": "https://kapoordyes.com/quality"
+        }}
+      />
       
       {/* Page Header Banner */}
       <section className="relative h-[360px] md:h-[440px] flex flex-col justify-end bg-slate-900 text-white overflow-hidden pb-12 md:pb-16">

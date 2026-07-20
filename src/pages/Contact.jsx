@@ -83,7 +83,32 @@ export default function Contact() {
 
   return (
     <>
-      <SEO title="Contact Us & Inquiry Form" />
+      <SEO 
+        title="Contact Us & Factory Directions" 
+        description="Get in touch with Kapoor Dyes & Chemicals Company. Factory located at C 1/125 GIDC Phase 2, Vatva, Ahmedabad, Gujarat. Direct Phone: +91 98384 41481, Email: ankit@kapoordyes.com."
+        keywords="Contact Kapoor Dyes, Ahmedabad Factory Address, Vatva GIDC Chemical Plant, Kanpur Branch Office, Kapoor Dyes Phone Number, Dyestuff Inquiry"
+        canonical="https://kapoordyes.com/contact"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Contact Us - Kapoor Dyes & Chemicals Company",
+          "url": "https://kapoordyes.com/contact",
+          "mainEntity": {
+            "@type": "Place",
+            "name": "Kapoor Dyes & Chemicals Ahmedabad Factory",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C 1 / 125, GIDC Phase 2, Vatva",
+              "addressLocality": "Ahmedabad",
+              "addressRegion": "Gujarat",
+              "postalCode": "382445",
+              "addressCountry": "IN"
+            },
+            "telephone": "+919838441481",
+            "email": "ankit@kapoordyes.com"
+          }
+        }}
+      />
       
       {/* Page Header Banner */}
       <section className="relative h-[360px] md:h-[440px] flex flex-col justify-end bg-slate-900 text-white overflow-hidden pb-12 md:pb-16">

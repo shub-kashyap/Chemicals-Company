@@ -46,8 +46,22 @@ export default function Products() {
   return (
     <>
       <SEO 
-        title={`${categoryData.name} Catalogue`} 
-        description={categoryData.description}
+        title={`${categoryData.name} | Industrial Dyestuffs Catalogue`} 
+        description={`${categoryData.description} Kapoor Dyes & Chemicals Co. manufactures & exports high-purity ${categoryData.name} for global textile, leather, and paper industries.`}
+        keywords={`Kapoor Dyes, ${categoryData.name}, Dyestuff Manufacturer India, Reactive Dyes, Acid Dyes, Direct Dyes, Disperse Dyes, Naphthols, Pigments`}
+        canonical={`https://kapoordyes.com/products${activeCategory !== 'reactive' ? `?category=${activeCategory}` : ''}`}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": `${categoryData.name} - Kapoor Dyes & Chemicals Company`,
+          "description": categoryData.description,
+          "url": `https://kapoordyes.com/products?category=${activeCategory}`,
+          "isPartOf": {
+            "@type": "WebSite",
+            "name": "Kapoor Dyes & Chemicals Company",
+            "url": "https://kapoordyes.com"
+          }
+        }}
       />
       
       {/* Page Header Banner */}

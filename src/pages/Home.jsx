@@ -46,7 +46,23 @@ export default function Home() {
 
   return (
     <>
-      <SEO title="Home" />
+      <SEO 
+        title="Dyestuffs & Pigments Manufacturer India" 
+        description="Kapoor Dyes & Chemicals Co. is an ISO 9001:2015 certified manufacturer & exporter of Reactive, Acid, Direct, Disperse Dyes, Naphthols, and Pigments for Textile, Leather, Paper, and Polymer industries since 1966."
+        keywords="Kapoor Dyes, Reactive Dyes Manufacturer, Acid Dyes Exporter, Direct Dyes Supplier, Disperse Dyes, Naphthols, Pigments India, Vatva GIDC Chemical Plant, Kanpur Dyes"
+        canonical="https://kapoordyes.com/home"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Kapoor Dyes & Chemicals Company",
+          "url": "https://kapoordyes.com",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://kapoordyes.com/products?search={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }}
+      />
       
       {/* 1. HERO SLIDER SECTION (Adapted from Industrie Oil & Gas banner style) */}
       <section className="relative min-h-[90svh] flex items-center pt-36 md:pt-44 pb-36 px-6 md:px-12 bg-slate-950 text-white overflow-hidden group">

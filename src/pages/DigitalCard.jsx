@@ -70,8 +70,23 @@ END:VCARD`;
   return (
     <>
       <SEO 
-        title="Ankit Kapoor | Digital Business Card" 
-        description="Save contact info, start WhatsApp chat, send inquiry, or view locations for Kapoor Dyes & Chemicals."
+        title="Mr. Ankit Kapoor | Digital Business Card" 
+        description="Digital Business Card of Mr. Ankit Kapoor, International Business / Sales Manager at Kapoor Dyes & Chemicals Company. Save contact, start WhatsApp chat, or call directly."
+        keywords="Ankit Kapoor Dyes, Kapoor Dyes Digital Card, Ankit Kapoor Contact, Dyestuff Sales Manager Ahmedabad"
+        canonical="https://kapoordyes.com/digital-card"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Ankit Kapoor",
+          "jobTitle": "International Business / Sales Manager",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Kapoor Dyes & Chemicals Company"
+          },
+          "telephone": "+919838441481",
+          "email": "ankit@kapoordyes.com",
+          "url": "https://kapoordyes.com/digital-card"
+        }}
       />
       
       <div className="min-h-screen bg-navy text-white flex flex-col justify-center items-center py-24 px-6 relative overflow-hidden bg-mesh">

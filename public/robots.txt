@@ -1,0 +1,9 @@
+# Robots.txt for Kapoor Dyes & Chemicals Company
+# https://kapoordyes.com
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Specify Sitemap location for Googlebot, Bingbot, Yandex, etc.
+Sitemap: https://kapoordyes.com/sitemap.xml

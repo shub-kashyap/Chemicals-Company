@@ -25,7 +25,25 @@ export default function About() {
 
   return (
     <>
-      <SEO title="Company Profile" />
+      <SEO 
+        title="Company Profile & 50+ Years History" 
+        description="Established in 1966 by the Kapoor family, Kapoor Dyes & Chemicals Co. has over 50+ years of industrial expertise in synthetic organic dyestuffs, serving global textile, leather, and paper markets."
+        keywords="Company Profile Kapoor Dyes, Dyestuff History, 1966 Dyes Manufacturer, Kapoor Family Chemical Business, Industrial Dyes Exporter"
+        canonical="https://kapoordyes.com/company-profile"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "Company Profile - Kapoor Dyes & Chemicals Company",
+          "description": "Established in 1966, Kapoor Dyes & Chemicals Co. is an ISO 9001:2015 certified manufacturer of synthetic organic dyestuffs.",
+          "url": "https://kapoordyes.com/company-profile",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Kapoor Dyes & Chemicals Company",
+            "foundingDate": "1966",
+            "founder": "Kapoor Family"
+          }
+        }}
+      />
       
       {/* Page Header Banner */}
       <section className="relative h-[360px] md:h-[440px] flex flex-col justify-end bg-slate-900 text-white overflow-hidden pb-12 md:pb-16">
